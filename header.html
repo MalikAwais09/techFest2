@@ -1,0 +1,154 @@
+<head>
+  <script src="script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+  *{
+      font-family: sans-serif;
+  }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background: #fff;
+  border-bottom: 1px solid black;
+  position: fixed; /* Make the navbar fixed */
+  top: 0; /* Stick it to the top */
+  left: 0;
+  width: 100%;
+  z-index: 1001; /* Ensure it stays on top of other content */
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+
+}
+ .logo a{
+  text-decoration: none;
+  color: black;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.login-btn, .register-btn {
+  padding: 8px 16px;
+  border: 1px solid #333;
+  background: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.register-btn {
+  background-color: #4F46E5;
+  color: #fff;
+  border: none;
+}
+
+
+  /* Hamburger Menu Styles */
+  .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 1000;
+  }
+
+  .hamburger-line {
+      width: 25px;
+      height: 2px;
+      background-color: #333;
+      transition: all 0.3s ease;
+  }
+
+  .nav-links.active,
+  .auth-buttons.active {
+      display: flex !important;
+  }
+
+  /* Mobile Menu Styles */
+  @media (max-width: 768px) {
+      .nav-links,
+      .auth-buttons {
+          display: none;
+      }
+
+      .hamburger {
+          display: flex;
+      }
+
+      .nav-links {
+          position: fixed;
+          top: 60px;
+          right: 0;
+          width: 100%;
+          background: white;
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 0;
+          border-bottom: 1px solid black;
+          z-index: 999;
+      }
+
+      .auth-buttons {
+          position: fixed;
+          top: 200px;
+          right: 0;
+          width: 100%;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          padding: 0 20px;
+      }
+
+      .hamburger.active .hamburger-line:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active .hamburger-line:nth-child(2) {
+          opacity: 0;
+      }
+
+      .hamburger.active .hamburger-line:nth-child(3) {
+          transform: rotate(-45deg) translate(5px, -5px);
+      }
+  }
+</style>
+
+<header class="navbar">
+  <div class="logo">🎓<a href="index.html">BIIT-TechFest</a></div>
+
+  <div class="hamburger" onclick="toggleMenu()">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+  </div>
+
+  <nav>
+      <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="event-details.html">Events</a></li>
+          <li><a href="about.html">About US</a></li>
+      </ul>
+  </nav>
+  <div class="auth-buttons">
+      <button onclick="registerBtnClick();" class="register-btn">Register For Event</button>
+  </div>
+</header>
